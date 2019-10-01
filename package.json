@@ -15,6 +15,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start-prod": "react-scripts build && node server.js"
+    "start-prod": "node server.js"
   }
 }

@@ -9,6 +9,6 @@ RUN cp -a /tmp/node_modules /opt/app-root
 WORKDIR /opt/app-root
 COPY . .
 
-EXPOSE 9000
+EXPOSE 8080
 
 CMD ["yarn", "run", "start-prod"]
