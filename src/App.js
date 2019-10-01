@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       username : '',
       NameOnServer: '',
-      err: ''
+      err: false
     }
     this._onSubmitApp = this._onSubmitApp.bind(this);
   }
@@ -19,22 +19,22 @@ class App extends Component {
     this.setState({
       ...this.state,
       username : val
-    },()=>{
-      console.log("after udpate", this.state);
     });
   }
 
   _onSubmitApp(){
     saveNameToServer(this.state.username).then((response)=>{
-      const name  = response.data.name
+      const name  = response.data.name;
       this.setState({
         ...this.state,
-        NameOnServer : name
+        NameOnServer : name,
+        err : false
       });
     }).catch((err)=>{
       this.setState({
         ...this.state,
-        err : 'Network error'
+        NameOnServer : '',
+        err : true
       });
     });
   }
@@ -54,16 +54,16 @@ class App extends Component {
           <input type="text" value={this.state.username} name="username" id="username" onChange={(e) => this._onChangeData(e)}/>
         </div>
 
-        <div>
-          <button name="submit" type="button" onClick={this._onSubmitApp}>Save On Server</button>
+        <div style={{ paddingTop : '30px'}}>
+          <button name="submit" type="button" style={{backgroundColor : 'blue', color : '#fff', padding: '10px'}} onClick={this._onSubmitApp}>Save On Server</button>
         </div>
-        {NameOnServer && 
+        {NameOnServer &&
             <div>
               <h2>You Name Saved on the server</h2>
               <p> { NameOnServer}</p>
             </div>
         }
-        { err && <p style={{ color: 'red'}}>{err}</p>
+        { err && <p style={{ color: 'red'}}>{'Network Error'}</p>
         }
       </div>
     );
