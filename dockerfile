@@ -1,6 +1,6 @@
 FROM node:8
 
-RUN cd /tmp && yarn add express
+RUN cd /tmp && npm install express
 
 RUN mkdir -p /opt/app-root
 
@@ -11,4 +11,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["yarn", "run", "start-prod"]
+CMD ["npm", "run", "start-prod"]
