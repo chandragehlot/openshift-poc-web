@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:8085/quote';
+const url = 'http://openshift-poc-test-myproject.2886795325-80-simba02.environments.katacoda.com/quote';
 
 export const saveNameToServer = (name) => {
     const data = {
