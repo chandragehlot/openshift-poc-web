@@ -1,7 +1,10 @@
 version: '3'
 services:
   web:
-    build: ./
+    build:
+      contenxt: .
+      args:
+        NODE_ENV: production
     ports:
     - "8080:8080"
     environment:
