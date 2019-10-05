@@ -11,10 +11,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start-local": "react-scripts start",
+    "build-local": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start-prod": "node server.js"
+    "start": "node server.js"
   }
 }
